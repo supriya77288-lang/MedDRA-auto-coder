@@ -1,0 +1,13 @@
+Verbatim (Patient Input),Preferred Term (PT),MedDRA Code
+"dizzy, lightheaded, vertigo, woozy",Dizziness,10013573
+"headache, head pain, migraine, throbbing head",Headache,10019233
+"sick, nauseous, queasy, stomach upset",Nausea,10028813
+"throw up, vomiting, puking",Vomiting,10047700
+"blurry vision, fuzzy sight, blurry eyes",Vision blurred,10047662
+"runny nose, snotty nose, sniffles",Rhinorrhoea,10038848
+"cough, hacking, dry throat tickle",Cough,10011224
+"itchy skin, rash, hives, breakout",Rash,10037844
+"tired, wiped out, lethargic, fatigued",Fatigue,10016256
+"sore throat, scratchy throat",Throat irritation,10043586
+"heart racing, palpitations, fluttering heart",Palpitations,10033557
+"belly ache, stomach pain, tummy pain",Abdominal pain,10000081
