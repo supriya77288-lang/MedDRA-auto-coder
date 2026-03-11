@@ -1,37 +1,51 @@
 import streamlit as st
+import pandas as pd
 
-# MedDRA Dictionary
-meddra_data = {
-    "headache": {"PT": "Headache", "LLT": "Pain in head", "Code": "10019233"},
-    "dizzy": {"PT": "Dizziness", "LLT": "Lightheadedness", "Code": "10013573"},
-    "heart racing": {"PT": "Palpitations", "LLT": "Awareness of heart beat", "Code": "10033557"},
-    "nausea": {"PT": "Nausea", "LLT": "Feeling queasy", "Code": "10028813"},
-    "skin rash": {"PT": "Rash", "LLT": "Skin eruption", "Code": "10037844"},
-    "tired": {"PT": "Fatigue", "LLT": "Lethargy", "Code": "10016256"},
-    "chest pain": {"PT": "Chest pain", "LLT": "Discomfort chest", "Code": "10008479"}
-}
+# 1. Load the data from your CSV
+@st.cache_data
+def load_data():
+    # This reads the CSV file you uploaded to GitHub
+    return pd.read_csv("symptoms.csv")
+
+df = load_data()
 
 st.set_page_config(page_title="MedDRA Auto-Coder", page_icon="💊")
 
-st.title("💊 MedDRA Auto-Coder")
-st.markdown("### Professional Portfolio Project: Supriya Bhati")
-st.write("This tool demonstrates the use of logic-based mapping to convert patient 'verbatim' language into regulatory-standard MedDRA terms.")
+st.title("💊 Pharmacovigilance Auto-Coder")
+st.markdown("""
+This tool maps patient-reported symptoms to standardized MedDRA terms. 
+Designed for regulatory compliance and data consistency.
+""")
 
-query = st.text_input("Enter Patient Symptom (e.g., I have a bad headache):")
+# 2. User Input
+user_input = st.text_input("Enter patient symptoms (e.g., dizzy, headache):").lower()
 
-if query:
-    found = False
-    for key, values in meddra_data.items():
-        if key in query.lower():
-            st.success(f"✅ **Match Found**")
-            col1, col2 = st.columns(2)
-            col1.metric("Preferred Term (PT)", values["PT"])
-            col2.metric("MedDRA Code", values["Code"])
-            st.info(f"**Lowest Level Term (LLT):** {values['LLT']}")
-            found = True
+if user_input:
+    # 3. Clean and process the input
+    # We split by comma or space to handle multiple symptoms
+    query_terms = [term.strip() for term in user_input.replace(",", " ").split()]
     
-    if not found:
-        st.error("No direct match found in the demo dictionary.")
+    st.subheader("Coding Results:")
+    found_results = []
+    
+    # 4. Search logic: Iterate through the CSV
+    # We check if any of the user's terms exist within the "Verbatim" column
+    for term in query_terms:
+        if term:
+            # Look for matches in the Verbatim column
+            match = df[df['Verbatim'].str.contains(term, case=False, na=False)]
+            if not match.empty:
+                found_results.append(match)
+    
+    # 5. Display the findings
+    if found_results:
+        # Combine all matches and remove duplicates
+        results_df = pd.concat(found_results).drop_duplicates()
+        st.success(f"Successfully mapped {len(results_df)} terms:")
+        st.table(results_df)
+    else:
+        st.warning("No official matches found. Please check spelling or try common terms.")
 
-st.sidebar.title("About this Project")
-st.sidebar.info("This application bridges the gap between clinical pharmacy expertise and automated data coding in Pharmacovigilance.")
+# 6. Footer
+st.sidebar.markdown("---")
+st.sidebar.info("Developed by [Your Name] | Pharm-Tech Integration Project")
