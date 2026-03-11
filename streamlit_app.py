@@ -5,7 +5,7 @@ import pandas as pd
 @st.cache_data
 def load_data():
     # This reads the CSV file you uploaded to GitHub
-    return pd.read_csv("symptoms.csv")
+    return pd.read_csv("symptoms.csv - Canadian Symptom Mapping for PV.csv")
 
 df = load_data()
 
