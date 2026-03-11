@@ -48,4 +48,4 @@ if user_input:
 
 # 6. Footer
 st.sidebar.markdown("---")
-st.sidebar.info( "Developed by [SUPRIYA BHATI]")
+st.sidebar.info( "Developed by [SUPRIYA BHATI] | Pharm-tech integration project")
