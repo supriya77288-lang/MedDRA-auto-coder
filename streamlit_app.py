@@ -33,7 +33,7 @@ if user_input:
     for term in query_terms:
         if term:
             # Look for matches in the Verbatim column
-            match = df[df['Verbatim'].str.contains(term, case=False, na=False)]
+            match = df[df['Verbatim (Patient Input)'].str.contains(term, case=False, na=False)]
             if not match.empty:
                 found_results.append(match)
     
