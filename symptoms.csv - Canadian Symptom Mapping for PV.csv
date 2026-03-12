@@ -18,11 +18,23 @@ Verbatim (Patient Input),Preferred Term (PT),MedDRA Code
 "blurry vision", Vision blurred,10047662
 "fuzzy sight", Vision blurred,10047662
 "blurry eyes",Vision blurred,10047662
-"runny nose, snotty nose, sniffles",Rhinorrhoea,10038848
-"cough, hacking, dry throat tickle",Cough,10011224
-"itchy skin, rash, hives, breakout",Rash,10037844
-"tired, wiped out, lethargic, fatigued",Fatigue,10016256
-"sore throat, scratchy throat",Throat irritation,10043586
+"runny nose", Rhinorrhoea,10038848
+"snotty nose", Rhinorrhoea,10038848
+"sniffles",Rhinorrhoea,10038848
+"cough", Cough,10011224
+"hacking", Cough,10011224
+"dry throat tickle", Cough,10011224
+"itchy skin", Rash,10037844
+"rash", Rash,10037844
+"hives", Rash,10037844
+"breakout",Rash,10037844
+"tired", Fatigue,10016256
+"wiped out", Fatigue,10016256
+"lethargic", Fatigue,10016256
+"fatigued",Fatigue,10016256
+"sore throat", Oropharyngeal pain,10033012
+"scratchy throat",Throat irritation,10043586
 "heart racing, palpitations, fluttering heart",Palpitations,10033557
 
 "belly ache, stomach pain, tummy pain",Abdominal pain,10000081
+
