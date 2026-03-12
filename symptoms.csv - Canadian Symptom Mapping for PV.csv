@@ -23,7 +23,7 @@ Verbatim (Patient Input),Preferred Term (PT),MedDRA Code
 "sniffles",Rhinorrhoea,10038848
 "cough", Cough,10011224
 "hacking", Cough,10011224
-"dry throat tickle", Cough,10011224
+"dry throat, dry throat tickle", Cough,10011224
 "itchy skin", Rash,10037844
 "rash", Rash,10037844
 "hives", Rash,10037844
@@ -46,3 +46,4 @@ Verbatim (Patient Input),Preferred Term (PT),MedDRA Code
 "common cold", Nasopharyngitis,10028813
 "joint pain", Arthralgia,10003239
 "itching", Pruritus,10037087
+
